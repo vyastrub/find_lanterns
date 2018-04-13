@@ -73,20 +73,21 @@ std::string City::mul(std::string s1, std::string s2)
 	for (size_t i = 0; i < s1.size(); ++i)
 		for (size_t j = 0; j < s2.size(); ++j)
 			result[i + j] += s1[i] * s2[j];
-	int tmp;
+	int tmp = 0;
 	for (size_t i = 0; i < s1.size() + s2.size(); ++i)
 	{
 		tmp = result[i] / 10;
 		result[i] = result[i] % 10;
-		result[i + 1] += tmp;
-	}
-	for (auto it = result.end() - 1; it >= result.begin(); ++it)
-	{
-		if (*it == 0)
-			result.pop_back();
+		if (i + 1 < result.size())
+			result[i + 1] += tmp;
 		else
-			break ;
+			result.push_back(tmp);
 	}
+	int i = result.size() - 1;
+	while (result[i] == 0)
+		--i;
+	result.resize(i + 1);
+
 	std::reverse(result.begin(), result.end());
 	std::string res;
 	for (auto i : result)

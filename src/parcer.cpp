@@ -16,13 +16,13 @@ void Parcer::run()
 	int line_count = 0;
 	while (getline(_file, line))
 	{
-		for (auto i = line.begin(); i < line.end(); ++i)
+		for (int i = 0; i < line.size(); ++i)
 		{
 			std::string tmp;
-			if (*i >= '0' && *i <= '9')
+			if (line[i] >= '0' && line[i] <= '9')
 			{
-				while (*i >= '0' && *i <= '9')
-					tmp.push_back(*i++);
+				while (line[i] >= '0' && line[i] <= '9')
+					tmp.push_back(line[i++]);
 				num.push_back(stoi(tmp));
 			}
 		}

@@ -1,6 +1,6 @@
 author: Victor Yastrub
 
-platform Ubuntu 16.04.4
+platform Ubuntu 16.04.4 (cross-platform code)
 
 C++11 compiled under GCC version 5.4.0
 
